@@ -14,6 +14,21 @@ The following packages are required to be installed locally:
 brew install terraform kubectl jq wireguard-tools
 ```
 
+or for ubuntu
+```sh
+wget https://releases.hashicorp.com/terraform/0.10.8/terraform_0.10.8_linux_amd64.zip
+sudo unzip terraform_0.10.8_linux_amd64.zip -d /usr/local/bin
+sudo chmod u+x /usr/local/bin/terraform
+curl -LO https://storage.googleapis.com/kubernetes-release/release/$(curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt)/bin/linux/amd64/kubectl
+chmod +x ./kubectl
+sudo mv ./kubectl /usr/local/bin/kubectl
+sudo apt-get install jq
+sudo add-apt-repository ppa:wireguard/wireguard
+sudo apt-get update
+sudo apt-get install wireguard-dkms wireguard-tools
+```
+
+
 Modules are using ssh-agent for remote operations. Add your SSH key with `ssh-add -K` if Terraform repeatedly fails to connect to remote hosts.
 
 ### Configuration
